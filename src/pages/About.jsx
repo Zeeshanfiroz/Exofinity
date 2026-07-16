@@ -1,64 +1,120 @@
 import SectionHeading from "../components/ui/SectionHeading";
-import { coreFocus } from "../data/coreFocus";
+import Button from "../components/ui/Button";
 
 export default function About() {
+  const pillars = [
+    {
+      icon: "🚀",
+      title: "Technology & Innovation",
+      desc: "Exploring emerging technologies — AI, Blockchain, Cloud, and beyond."
+    },
+    {
+      icon: "🤖",
+      title: "AI & Automation",
+      desc: "Building intelligent systems that augment human capability — from ML models to agentic AI pipelines."
+    },
+    {
+      icon: "🌐",
+      title: "Web & Open Source",
+      desc: "Creating open-source tools, contributing to global projects, and building the web of tomorrow."
+    },
+    {
+      icon: "⚡",
+      title: "Rapid Prototyping",
+      desc: "From idea to demo in record time. We celebrate speed, iteration, and the courage to ship early."
+    },
+    {
+      icon: "🧠",
+      title: "Knowledge & Research",
+      desc: "Deep dives, research papers, workshops, and study groups that raise everyone's technical floor."
+    },
+    {
+      icon: "👥",
+      title: "Community & People",
+      desc: "The heartbeat of Exofinity. Mentorship, inclusivity, and genuine human connection drive everything we do."
+    }
+  ];
+
+  const aims = [
+    "Learn new technologies",
+    "Build real projects",
+    "Share knowledge openly",
+    "Grow professionally and personally",
+    "Help each other reach the next level"
+  ];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 py-16">
-      {/* Who we are */}
-      <SectionHeading
-        eyebrow="About Us"
-        title="Who is Exofinity?"
-        subtitle="Team Exofinity is a community for former members who unite around AI, Web Development, and emerging technologies."
-      />
-      <p className="mt-6 text-white/70 leading-relaxed max-w-3xl">
-        We started as a group of former members looking for a place to keep learning, building,
-        and growing together. Exofinity exists to give that group a home — a space where ideas
-        turn into projects, and where no one has to figure things out alone.
-      </p>
+    <div className="relative z-10">
+      <div className="max-w-6xl mx-auto px-4 py-16">
+        {/* Header Element */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-accent to-accent-cyan bg-clip-text text-transparent">
+            Mission, Vision & Our Why
+          </h2>
+          <p className="text-white/70 max-w-2xl mx-auto mb-4">
+            We exist to unite passionate individuals around technology, collaboration, and the relentless pursuit of infinite growth.
+          </p>
+          <p className="text-accent-cyan font-semibold">Community Founded: March 2026</p>
+        </div>
 
-      {/* Mission */}
-      <div className="mt-16 bg-base-surface border border-base-border rounded-xl2 p-8">
-        <p className="text-accent font-semibold uppercase tracking-wide text-sm mb-2">Our Mission</p>
-        <p className="text-2xl font-heading font-bold">
-          Grow together, build together, succeed together.
-        </p>
-      </div>
+        {/* Column 1 & 2 */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Core Narrative Card */}
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 transition-transform duration-300 hover:scale-[1.02]">
+            <h3 className="text-2xl font-bold mb-4 text-accent">A Community Born From Shared Ambition</h3>
+            <p className="text-white/70 mb-4 leading-relaxed">
+              Exofinity is more than just a group — it is a movement of former members who refused to let their connections fade after their shared institution or organization. We chose to carry our bonds forward, transforming them into a living, breathing innovation ecosystem.
+            </p>
+            <p className="text-white/70 leading-relaxed">
+              We believe that the best technology is built together. That real projects, open knowledge, and fearless experimentation are the pillars of progress. Exofinity is the space where those pillars stand tall. From our first workshop to our 40+ events and growing, every milestone is a testament to what happens when former members don't just reminisce — they build the future together.
+            </p>
+          </div>
 
-      {/* Core Focus (detailed) */}
-      <div className="mt-16">
-        <SectionHeading eyebrow="What We Do" title="Core Focus" />
-        <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {coreFocus.map((item) => (
-            <div key={item.title} className="bg-base-surface border border-base-border rounded-xl2 p-6">
-              <span className="text-3xl">{item.icon}</span>
-              <h3 className="mt-3 font-heading font-bold text-lg">{item.title}</h3>
-              <p className="mt-1 text-white/60 text-sm">{item.desc}</p>
-            </div>
-          ))}
+          {/* Objective & Foundation Elements */}
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 transition-transform duration-300 hover:scale-[1.02]">
+            <h3 className="text-2xl font-bold mb-4 text-accent">Our Aim</h3>
+            <p className="text-white/80 mb-4">To create a supportive ecosystem where members:</p>
+            <ul className="space-y-3 mb-8">
+              {aims.map((aim, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="text-accent-cyan text-xl">✓</span>
+                  <span className="text-white/70">{aim}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-xl italic text-center text-white/80">
+              “In Exofinity, no one grows alone.”
+            </p>
+          </div>
+        </div>
+
+        {/* Pillars Grid */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center mb-10 text-accent">Six Pillars of Our Innovation Engine</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pillars.map((pillar, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 transition-transform duration-300 hover:scale-[1.03]"
+              >
+                <span className="text-4xl">{pillar.icon}</span>
+                <h4 className="mt-3 font-bold text-lg text-white">{pillar.title}</h4>
+                <p className="mt-2 text-white/60 text-sm">{pillar.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Central Motto Callout Banner */}
+        <div className="bg-gradient-to-r from-accent/20 to-accent-cyan/20 backdrop-blur-md border border-white/10 rounded-3xl p-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">BEYOND LIMITS. INFINITE GROWTH.</h2>
+          <p className="text-white/70 mb-8 text-lg">“Alone we learn, together we create the future.”</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button to="/join">Join Community</Button>
+            <Button to="/team" variant="secondary">Meet the Team</Button>
+          </div>
         </div>
       </div>
-
-      {/* Our Aim */}
-      <div className="mt-16">
-        <SectionHeading eyebrow="Our Aim" title="What We're Working Toward" />
-        <ul className="mt-6 space-y-3 text-white/70">
-          {["Learn continuously from each other and the wider community.",
-            "Build real projects, not just talk about ideas.",
-            "Share knowledge, resources, and opportunities freely.",
-            "Grow individually and as a community.",
-            "Help each other whenever it's needed."].map((goal) => (
-            <li key={goal} className="flex gap-3">
-              <span className="text-accent">→</span>
-              <span>{goal}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Closing quote */}
-      <p className="mt-16 text-center text-xl font-heading italic text-white/80">
-        "In Exofinity, no one grows alone."
-      </p>
     </div>
   );
 }
