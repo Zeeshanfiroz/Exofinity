@@ -16,14 +16,19 @@ export const team = [
   {
     name: "Abhinav Kumar",
     role: "Co-Founder & Tech Lead",
-    tags: ["Tech Lead", "Full-Stack Architect", "Open Source", "Builder", "Entrepreneur", "Event Host", "Public Speaker"],
-    bio: "Founder @ Hacknfinity & CrewOnRent | 100+ Hackathons | 30+ Microsoft Certificates |10+ Event Host | Building Startups & Tech Communities | Entrepreneur | Event Host | Public Speaker | Full Stack Developer.",
-    photo: "https://media.licdn.com/dms/image/v2/D5635AQFSncACO3RxDg/profile-framedphoto-shrink_100_100/B56Z4tx6ORJkAk-/0/1778884519055?e=1784818800&v=beta&t=E_rc2yZGKwvBLnXpS7V6m0uWeNNaRrDsmEuSSrKc0lk",
+    tags: ["Tech Lead", "Full-Stack Architect", "Open Source", "Builder", "Entrepreneur", "Event Host", "Public Speaker", "Founder", "Hacknfinity", "CrewOnRent"],
+    bio: "Founder of Hacknfinity | Founder of CrewOnRent | Co Founder Learnnfinity & Exofinity | 2nd Year CSE @ KRMU | Empowering students through tech & innovation.",
+    photo: "/abhinav-profile.jpg",
     socials: { 
       linkedin: "https://www.linkedin.com/in/codewithabhinav?utm_source=share_via&utm_content=profile&utm_medium=member_android", 
-      github: "#", 
-      twitter: "#", 
-      email: "mailto:abhinav@exofinity.com" 
+      github: "https://github.com/codewithabhiinav", 
+      twitter: "https://x.com/codewithabhinav", 
+      email: "mailto:mailabhinavbunty75770000@gmail.com",
+      instagram: "https://instagram.com/codewithabhinav",
+      whatsapp: "https://wa.me/yournumber",
+      snapchat: "https://snapchat.com/add/codewithabhinav",
+      telegram: "https://t.me/codewithabhinav",
+      discord: "https://discord.gg/codewithabhinav",
     },
   },
 ];

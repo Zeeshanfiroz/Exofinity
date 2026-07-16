@@ -6,12 +6,14 @@ import { team, openRoles } from "../data/team";
 function Avatar({ name, photo }) {
   if (photo) {
     return (
-      <img
-        src={photo}
-        alt={name}
-        loading="lazy"
-        className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-accent/40 shadow-lg"
-      />
+      <div className="w-40 h-40 mx-auto rounded-full border-4 border-accent/40 shadow-lg overflow-hidden">
+        <img
+          src={photo}
+          alt={name}
+          loading="lazy"
+          className="w-full h-full object-cover object-[50%_10%]"
+        />
+      </div>
     );
   }
 
@@ -35,7 +37,13 @@ function SocialIcon({ type, href }) {
     linkedin: "in",
     github: "GH",
     twitter: "X",
-    email: "✉"
+    x: "X",
+    email: "✉",
+    instagram: "IG",
+    whatsapp: "WA",
+    snapchat: "SC",
+    telegram: "TG",
+    discord: "DC"
   };
   
   return (
@@ -87,11 +95,17 @@ export default function Team() {
                 {member.bio}
               </p>
               
-              <div className="mt-5 flex justify-center gap-3">
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
                 {member.socials.linkedin && <SocialIcon type="linkedin" href={member.socials.linkedin} />}
                 {member.socials.github && <SocialIcon type="github" href={member.socials.github} />}
                 {member.socials.twitter && <SocialIcon type="twitter" href={member.socials.twitter} />}
+                {member.socials.x && <SocialIcon type="x" href={member.socials.x} />}
                 {member.socials.email && <SocialIcon type="email" href={member.socials.email} />}
+                {member.socials.instagram && <SocialIcon type="instagram" href={member.socials.instagram} />}
+                {member.socials.whatsapp && <SocialIcon type="whatsapp" href={member.socials.whatsapp} />}
+                {member.socials.snapchat && <SocialIcon type="snapchat" href={member.socials.snapchat} />}
+                {member.socials.telegram && <SocialIcon type="telegram" href={member.socials.telegram} />}
+                {member.socials.discord && <SocialIcon type="discord" href={member.socials.discord} />}
               </div>
             </div>
           ))}
