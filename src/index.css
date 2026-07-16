@@ -25,7 +25,12 @@ html {
 }
 
 body {
-  background-color: var(--color-base-bg);
+  background: linear-gradient(
+    135deg,
+    #0a0e14 0%,
+    #0d111a 50%,
+    #0a0e14 100%
+  );
   color: #fff;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

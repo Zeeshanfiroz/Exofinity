@@ -8,12 +8,14 @@ import Events from "./pages/Events";
 import Join from "./pages/Join";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import StarsBackground from "./components/sections/StarsBackground";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <StarsBackground />
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
