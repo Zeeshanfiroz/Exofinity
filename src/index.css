@@ -9,8 +9,9 @@
   --color-base-bg: #0a0e14;
   --color-base-surface: #10141d;
   --color-base-border: #232a3b;
-  --color-accent: #863bff;
-  --color-accent-hover: #9d5bff;
+  --color-accent: #8B5CF6;
+  --color-accent-hover: #A78BFA;
+  --color-accent-cyan: #06B6D4;
 
   --font-heading: "Space Grotesk", "Segoe UI", sans-serif;
   --font-sans: "Inter", "Segoe UI", sans-serif;
