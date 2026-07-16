@@ -48,13 +48,13 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         {/* Header Element */}
         <div className="text-center mb-16">
-          <p className="text-accent-cyan font-mono uppercase tracking-widest text-sm mb-2">// ABOUT EXOFINITY</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-accent to-accent-cyan bg-clip-text text-transparent">
             Mission, Vision & Our Why
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <p className="text-white/70 max-w-2xl mx-auto mb-4">
             We exist to unite passionate individuals around technology, collaboration, and the relentless pursuit of infinite growth.
           </p>
+          <p className="text-accent-cyan font-semibold">Community Founded: March 2026</p>
         </div>
 
         {/* Column 1 & 2 */}
