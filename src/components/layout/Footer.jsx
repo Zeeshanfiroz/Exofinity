@@ -1,19 +1,246 @@
 // src/components/layout/Footer.jsx
-export default function Footer() {
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/team", label: "Team" },
+  { to: "/events", label: "Events" },
+  { to: "/join", label: "Join" },
+  { to: "/contact", label: "Contact" },
+];
+
+const socials = [
+  { href: "https://instagram.com", label: "Instagram", icon: "social-icon" },
+  { href: "https://discord.gg", label: "Discord", icon: "discord-icon" },
+  { href: "https://x.com", label: "X", icon: "x-icon" },
+  { href: "https://github.com", label: "GitHub", icon: "github-icon" },
+];
+
+function ScrollTopButton() {
   return (
-    <footer className="border-t border-base-border py-10 mt-20">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-6 text-sm text-white/60">
-        <div>
-          <p className="font-heading font-bold text-white">Exofinity</p>
-          <p className="mt-1">Beyond limits. Infinite growth.</p>
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Back to top"
+      className="group inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-base-border text-white/60 transition-all duration-200 hover:border-accent hover:text-accent hover:shadow-glow"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        className="-translate-y-px transition-transform duration-200 group-hover:-translate-y-0.5"
+      >
+        <path
+          d="M8 12.5V3.5M8 3.5L3.5 8M8 3.5L12.5 8"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  );
+}
+
+function NewsletterForm() {
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const email = e.target.elements["footer-email"].value.trim();
+    if (!email) return;
+
+    setStatus("loading");
+    try {
+      // TODO: replace with your real endpoint (Mailchimp, Formspree, your API, etc.)
+      // await fetch("/api/subscribe", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ email }),
+      // });
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      setStatus("success");
+      e.target.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <p className="mt-3 flex items-center gap-2 rounded-xl2 border border-accent/40 bg-accent/10 px-3.5 py-2.5 text-sm text-accent">
+        You're on the list — see you at the next event.
+      </p>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-3 flex items-center gap-2" noValidate>
+      <label htmlFor="footer-email" className="sr-only">
+        Email address
+      </label>
+      <input
+        id="footer-email"
+        name="footer-email"
+        type="email"
+        required
+        placeholder="you@example.com"
+        disabled={status === "loading"}
+        className="w-full rounded-xl2 border border-base-border bg-base-surface px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-accent disabled:opacity-50"
+      />
+      <button
+        type="submit"
+        disabled={status === "loading"}
+        className="shrink-0 rounded-xl2 bg-accent px-4 py-2.5 text-sm font-semibold text-base-bg transition-all duration-200 hover:bg-accent-hover hover:shadow-glow disabled:opacity-60"
+      >
+        {status === "loading" ? "…" : "Join"}
+      </button>
+    </form>
+  );
+}
+
+export default function Footer() {
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".footer-fade", {
+        opacity: 0,
+        y: 24,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 85%",
+        },
+      });
+    }, footerRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <footer ref={footerRef} className="relative mt-24 overflow-hidden border-t border-base-border">
+      {/* subtle top glow accent line */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent"
+      />
+      {/* soft depth glow, purely decorative, no layout cost */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-64 w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-4 pt-14 pb-8">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+          {/* Brand */}
+          <div className="footer-fade">
+            <Link to="/" className="font-heading font-bold text-xl">
+              Exo<span className="text-accent">finity</span>
+            </Link>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
+              Beyond limits. Infinite growth. A community built for builders,
+              dreamers, and doers.
+            </p>
+
+            <div className="mt-5 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="group inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent hover:shadow-glow"
+                >
+                  <svg width="16" height="16" className="shrink-0">
+                    <use href={`/icons.svg#${s.icon}`} />
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigate */}
+          <div className="footer-fade">
+            <p className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
+              Navigate
+            </p>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+              {navLinks.map((l) => (
+                <li key={l.to}>
+                  <NavLink
+                    to={l.to}
+                    className={({ isActive }) =>
+                      `transition-colors ${
+                        isActive ? "text-accent" : "text-white/60 hover:text-white"
+                      }`
+                    }
+                  >
+                    {l.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="footer-fade">
+            <p className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
+              Resources
+            </p>
+            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
+              <li>
+                <a href="#" className="text-white/60 transition-colors hover:text-white">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 transition-colors hover:text-white">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 transition-colors hover:text-white">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white/60 transition-colors hover:text-white">
+                  Code of Conduct
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="footer-fade">
+            <p className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
+              Stay in the loop
+            </p>
+            <p className="mt-4 text-sm text-white/60">
+              Get event announcements and updates straight to your inbox.
+            </p>
+            <NewsletterForm />
+          </div>
         </div>
-        <div className="flex gap-4">
-          <a href="#" className="hover:text-accent">Instagram</a>
-          <a href="#" className="hover:text-accent">LinkedIn</a>
-          <a href="#" className="hover:text-accent">Discord</a>
-          <a href="#" className="hover:text-accent">WhatsApp</a>
+
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col-reverse items-center gap-4 border-t border-base-border pt-6 text-xs text-white/40 md:flex-row md:justify-between">
+          <p>© {new Date().getFullYear()} Team Exofinity. All rights reserved.</p>
+          <div className="flex items-center gap-5">
+            <span className="hidden sm:inline">Built by the Exofinity team</span>
+            <ScrollTopButton />
+          </div>
         </div>
-        <p>© {new Date().getFullYear()} Team Exofinity. All rights reserved.</p>
       </div>
     </footer>
   );
