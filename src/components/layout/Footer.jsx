@@ -94,7 +94,7 @@ export default function Footer() {
       {/* soft depth glow, purely decorative, no layout cost */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-64 w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-0 h-64 w-xl -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl"
       />
 
       <div className="relative max-w-6xl mx-auto px-4 pt-14 pb-8">
