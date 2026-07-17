@@ -126,11 +126,6 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Close the mobile menu automatically on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
-
   return (
     <header
       ref={headerRef}
@@ -168,6 +163,7 @@ export default function Navbar() {
                   if (el) linkRefs.current[l.to] = el;
                 }}
                 className={linkClass}
+                onClick={() => setOpen(false)}
               >
                 {l.label}
               </NavLink>
@@ -231,7 +227,12 @@ export default function Navbar() {
             style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)" }}
           >
             {links.map((l) => (
-              <NavLink key={l.to} to={l.to} className={mobileLinkClass}>
+              <NavLink
+                key={l.to}
+                to={l.to}
+                className={mobileLinkClass}
+                onClick={() => setOpen(false)}
+              >
                 {l.label}
               </NavLink>
             ))}
