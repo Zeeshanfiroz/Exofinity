@@ -1,5 +1,4 @@
-// src/components/layout/Footer.jsx
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,10 +15,26 @@ const navLinks = [
 ];
 
 const socials = [
-  { href: "https://instagram.com", label: "Instagram", icon: "social-icon" },
-  { href: "https://discord.gg", label: "Discord", icon: "discord-icon" },
-  { href: "https://x.com", label: "X", icon: "x-icon" },
-  { href: "https://github.com", label: "GitHub", icon: "github-icon" },
+  {
+    href: "https://www.instagram.com/ex_ofinity?igsh=MTZ0dTZkeDV3Ymp5ZA==",
+    label: "Instagram",
+    iconClass: "fa-brands fa-instagram",
+  },
+  {
+    href: "https://chat.whatsapp.com/DOyy2i4pY7n6UWa0NH91Hp",
+    label: "WhatsApp",
+    iconClass: "fa-brands fa-whatsapp",
+  },
+  {
+    href: "https://x.com/Exofinity26",
+    label: "X",
+    iconClass: "fa-brands fa-x-twitter",
+  },
+  {
+    href: "https://www.linkedin.com/company/exofinity/",
+    label: "LinkedIn",
+    iconClass: "fa-brands fa-linkedin-in",
+  },
 ];
 
 function ScrollTopButton() {
@@ -46,63 +61,6 @@ function ScrollTopButton() {
         />
       </svg>
     </button>
-  );
-}
-
-function NewsletterForm() {
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const email = e.target.elements["footer-email"].value.trim();
-    if (!email) return;
-
-    setStatus("loading");
-    try {
-      // TODO: replace with your real endpoint (Mailchimp, Formspree, your API, etc.)
-      // await fetch("/api/subscribe", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ email }),
-      // });
-      await new Promise((resolve) => setTimeout(resolve, 600));
-      setStatus("success");
-      e.target.reset();
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  if (status === "success") {
-    return (
-      <p className="mt-3 flex items-center gap-2 rounded-xl2 border border-accent/40 bg-accent/10 px-3.5 py-2.5 text-sm text-accent">
-        You're on the list — see you at the next event.
-      </p>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="mt-3 flex items-center gap-2" noValidate>
-      <label htmlFor="footer-email" className="sr-only">
-        Email address
-      </label>
-      <input
-        id="footer-email"
-        name="footer-email"
-        type="email"
-        required
-        placeholder="you@example.com"
-        disabled={status === "loading"}
-        className="w-full rounded-xl2 border border-base-border bg-base-surface px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-accent disabled:opacity-50"
-      />
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="shrink-0 rounded-xl2 bg-accent px-4 py-2.5 text-sm font-semibold text-base-bg transition-all duration-200 hover:bg-accent-hover hover:shadow-glow disabled:opacity-60"
-      >
-        {status === "loading" ? "…" : "Join"}
-      </button>
-    </form>
   );
 }
 
@@ -161,9 +119,7 @@ export default function Footer() {
                   aria-label={s.label}
                   className="group inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent hover:shadow-glow"
                 >
-                  <svg width="16" height="16" className="shrink-0">
-                    <use href={`/icons.svg#${s.icon}`} />
-                  </svg>
+                  <i className={`${s.iconClass} text-[14px] text-base-bg`} />
                 </a>
               ))}
             </div>
@@ -221,15 +177,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Stay in the loop */}
           <div className="footer-fade">
             <p className="font-heading text-sm font-semibold uppercase tracking-wider text-white/40">
               Stay in the loop
             </p>
             <p className="mt-4 text-sm text-white/60">
-              Get event announcements and updates straight to your inbox.
+              Event announcements and updates get shared in the community first.
             </p>
-            <NewsletterForm />
+            <a
+              href="https://chat.whatsapp.com/DOyy2i4pY7n6UWa0NH91Hp"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-2 rounded-xl2 bg-accent px-4 py-2.5 text-sm font-semibold text-base-bg transition-all duration-200 hover:bg-accent-hover hover:shadow-glow"
+            >
+              <i className="fa-brands fa-whatsapp text-[16px]" />
+              Join on WhatsApp
+            </a>
           </div>
         </div>
 

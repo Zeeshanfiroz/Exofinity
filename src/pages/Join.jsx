@@ -4,7 +4,25 @@ import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 
-const GOOGLE_FORM_SRC = "https://docs.google.com/forms/d/e/YOUR_JOIN_FORM_ID/viewform?embedded=true";
+const WHATSAPP_LINK = "https://chat.whatsapp.com/DOyy2i4pY7n6UWa0NH91Hp";
+
+const socials = [
+  {
+    href: "https://www.instagram.com/ex_ofinity?igsh=MTZ0dTZkeDV3Ymp5ZA==",
+    label: "Instagram",
+    iconClass: "fa-brands fa-instagram",
+  },
+  {
+    href: "https://www.linkedin.com/company/exofinity/",
+    label: "LinkedIn",
+    iconClass: "fa-brands fa-linkedin-in",
+  },
+  {
+    href: "https://x.com/Exofinity26",
+    label: "X",
+    iconClass: "fa-brands fa-x-twitter",
+  },
+];
 
 const benefits = [
   {
@@ -25,9 +43,9 @@ const benefits = [
 ];
 
 const steps = [
-  { n: "01", title: "Fill the form", desc: "Tell us a bit about yourself below — takes under 2 minutes." },
-  { n: "02", title: "We review it", desc: "Someone from the team looks it over, usually within a couple of days." },
-  { n: "03", title: "Get an invite", desc: "You'll get an email/Discord invite and a quick intro to the community." },
+  { n: "01", title: "Tap join", desc: "Hit the button below — it opens our WhatsApp community directly." },
+  { n: "02", title: "Say hi", desc: "Introduce yourself in the group so people know who just joined." },
+  { n: "03", title: "Get involved", desc: "Jump into whatever's happening — events, projects, or just the conversation." },
 ];
 
 export default function Join() {
@@ -54,15 +72,13 @@ export default function Join() {
           <SectionHeading
             eyebrow="Get Involved"
             title="Join the Community"
-            subtitle="Tell us a bit about yourself and where you'd like to contribute. No experience required — curiosity is the only prerequisite."
+            subtitle="We run on WhatsApp — no forms, no waiting on approval. Tap below and you're in."
             center
           />
         </div>
 
         <div className="join-fade mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Button href="#" variant="secondary">
-            Prefer WhatsApp? Join instantly
-          </Button>
+          <Button href={WHATSAPP_LINK}>Join on WhatsApp</Button>
         </div>
       </section>
 
@@ -100,23 +116,31 @@ export default function Join() {
         </div>
       </section>
 
-      {/* Form */}
-      <section className="max-w-2xl mx-auto px-4 py-16">
-        <p className="join-fade text-center font-heading font-semibold text-lg mb-6">
-          Ready? Fill out the form below
-        </p>
-        <div className="join-fade bg-base-surface border border-base-border rounded-xl2 overflow-hidden">
-          <iframe
-            src={GOOGLE_FORM_SRC}
-            title="Join Exofinity Form"
-            width="100%"
-            height="900"
-            className="w-full"
-            style={{ colorScheme: "light" }}
-            loading="lazy"
-          >
-            Loading…
-          </iframe>
+      {/* Final CTA + follow */}
+      <section className="max-w-2xl mx-auto px-4 py-16 text-center">
+        <div className="join-fade bg-base-surface border border-base-border rounded-xl2 px-6 py-12">
+          <p className="font-heading text-xl font-semibold">Ready when you are</p>
+          <p className="mt-2 text-sm text-white/60">
+            Join the WhatsApp community and say hello — that's it.
+          </p>
+          <div className="mt-6">
+            <Button href={WHATSAPP_LINK}>Join on WhatsApp</Button>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={s.label}
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent hover:shadow-glow"
+              >
+                <i className={`${s.iconClass} text-[16px] text-base-bg`} />
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </div>
