@@ -1,6 +1,6 @@
 // src/data/team.js
-import phalguniProfile from "../assets/images/phalguni-profile.png";
-import abhinavProfile from "../assets/images/abhinav-profile.jpg";
+import phalguniProfile from "../assets/images/phalguni-profile.webp";
+import abhinavProfile from "../assets/images/abhinav-profile.webp";
 
 export const team = [
   {
