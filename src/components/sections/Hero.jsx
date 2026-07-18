@@ -16,6 +16,10 @@ export default function Hero() {
         stagger: 0.15,
         duration: 0.8,
         ease: "power2.out",
+        // Once the animation finishes, strip GSAP's inline styles entirely
+        // so the element falls back to plain CSS (fully visible, no
+        // leftover opacity/transform that could ever get stuck).
+        clearProps: "opacity,transform",
       });
     }, heroRef);
     return () => ctx.revert();
