@@ -2,7 +2,7 @@ import { useState } from "react";
 import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import { upcomingEvents, pastEvents } from "../data/events";
+import { upcomingEvents, pastEvents, collaborations } from "../data/events";
 
 function formatDate(dateStr) {
   if (!dateStr) return "Date TBA";
@@ -66,6 +66,23 @@ export default function Events() {
             ))}
           </ul>
         )}
+      </div>
+
+      <div className="mt-20">
+        <SectionHeading
+          eyebrow="Partners & Community"
+          title="Our Collaborations"
+          subtitle="Working with communities, teams, and organizations to create meaningful opportunities."
+          center
+        />
+
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {collaborations.map((collaboration) => (
+            <Card key={collaboration} className="p-4 text-center">
+              <p className="font-semibold text-sm">{collaboration}</p>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
