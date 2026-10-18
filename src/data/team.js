@@ -5,6 +5,7 @@ import rohanProfile from "../assets/images/rohan-profile.webp";
 import kanishkaProfile from "../assets/images/kanishka-profile.webp";
 import deveshProfile from "../assets/images/devesh-profile.webp";
 import adimaProfile from "../assets/images/adima-profile.jpeg";
+import mohitProfile from "../assets/images/mohit-profile.png";
 
 export const team = [
   {
@@ -108,6 +109,19 @@ export const team = [
     socials: {
       linkedin: "https://www.linkedin.com/in/jetram-sri-valli-reddy-74a25538b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       instagram: "https://www.instagram.com/srivalli_1610?vrfl=MWQ4ZXZsZWdnd3FmZQ==",
+    },
+  },
+  {
+    name: "Mohit Sharma",
+    tags: ["PR & Outreach Team Head", "CS-AIML Student"],
+    experience: "CS-AIML student · Public relations and outreach enthusiast",
+    intro: "Passionate about building connections, strengthening community outreach, and exploring computer science and AI/ML.",
+    quote: "Connecting people, ideas, and opportunities to help the community grow.",
+    photo: mohitProfile,
+    socials: {
+      linkedin: "https://www.linkedin.com/in/mohit-sharma-982201417?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      instagram: "https://www.instagram.com/vicxious.mohit?exln=MTR6Y2RkZ3Jid2ZwNQ==",
+      email: "mailto:mohitsharma393b@gmail.com",
     },
   },
 ];
