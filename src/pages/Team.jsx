@@ -18,13 +18,14 @@ const SOCIAL_META = {
   email: { label: "Email", iconClass: "fa-solid fa-envelope" },
 };
 
-function Avatar({ name, photo, size = "w-32 h-32" }) {
+function Avatar({ name, photo, photoPosition = "center", size = "w-32 h-32" }) {
   if (photo) {
     return (
       <img
         src={photo}
         alt={name}
         loading="lazy"
+        style={{ objectPosition: photoPosition }}
         className={`${size} rounded-full object-cover mx-auto ring-2 ring-accent/40 transition-all duration-300 group-hover:ring-accent group-hover:shadow-glow`}
       />
     );
@@ -90,7 +91,7 @@ function TeamCard({ member }) {
       >
         {/* FRONT */}
         <div className="absolute inset-0 [backface-visibility:hidden] bg-base-surface border border-base-border rounded-xl2 p-6 pb-7 flex flex-col items-center text-center transition-colors duration-300 group-hover:border-accent/50">
-          <Avatar name={member.name} photo={member.photo} />
+          <Avatar name={member.name} photo={member.photo} photoPosition={member.photoPosition} />
 
           <h3 className="mt-4 font-heading font-bold text-lg">{member.name}</h3>
 
@@ -129,8 +130,13 @@ function TeamCard({ member }) {
 
         {/* BACK */}
         {hasBack && (
-          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-base-surface border border-accent/40 rounded-xl2 p-6 pb-7 flex flex-col items-center text-center overflow-hidden">
-            <Avatar name={member.name} photo={member.photo} size="w-14 h-14" />
+          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-base-surface border border-accent/40 rounded-xl2 p-6 pb-7 flex flex-col items-center text-center overflow-y-auto">
+            <Avatar
+              name={member.name}
+              photo={member.photo}
+              photoPosition={member.photoPosition}
+              size="w-14 h-14"
+            />
             <h3 className="mt-2 font-heading font-bold text-base">{member.name}</h3>
 
             <div className="mt-4 space-y-3">
