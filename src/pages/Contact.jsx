@@ -5,6 +5,7 @@ import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 
 const EMAIL = "exofinitycommunity@gmail.com";
+const EMAIL_COMPOSE_LINK = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}`;
 const WHATSAPP_LINK = "https://chat.whatsapp.com/DOyy2i4pY7n6UWa0NH91Hp";
 
 const socials = [
@@ -151,7 +152,9 @@ export default function Contact() {
         </div>
 
         <div className="contact-fade mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Button href={`mailto:${EMAIL}`}>Email us</Button>
+          <Button as="a" href={EMAIL_COMPOSE_LINK}>
+            Email us
+          </Button>
           <button
             type="button"
             onClick={handleCopy}
