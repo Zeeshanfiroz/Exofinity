@@ -2,6 +2,7 @@ import { useState } from "react";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
 import { team, openRoles } from "../data/team";
+import teamLogo from "../assets/images/exofinity-team-logo.jpeg";
 
 // Maps every possible key in a member's `socials` object to its display
 // label + Font Awesome icon class. Add a new platform here and every
@@ -177,6 +178,12 @@ export default function Team() {
         subtitle="The people building and steering Exofinity forward."
         center
       />
+
+      <div className="mt-8 flex justify-center">
+        <div className="rounded-xl2 border border-base-border bg-white px-6 py-3 shadow-glow/20">
+          <img src={teamLogo} alt="Exofinity" className="h-16 w-auto object-contain" />
+        </div>
+      </div>
 
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
         {team.map((member) => (

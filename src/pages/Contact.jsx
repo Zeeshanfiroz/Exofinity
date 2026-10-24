@@ -4,7 +4,7 @@ import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 
-const EMAIL = "exofinity26@gmail.com";
+const EMAIL = "exofinitycommunity@gmail.com";
 const WHATSAPP_LINK = "https://chat.whatsapp.com/DOyy2i4pY7n6UWa0NH91Hp";
 
 const socials = [

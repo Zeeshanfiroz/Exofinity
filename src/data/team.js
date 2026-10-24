@@ -6,6 +6,9 @@ import kanishkaProfile from "../assets/images/kanishka-profile.webp";
 import deveshProfile from "../assets/images/devesh-profile.webp";
 import adimaProfile from "../assets/images/adima-profile.jpeg";
 import mohitProfile from "../assets/images/mohit-profile.png";
+import aparnaProfile from "../assets/images/aparna-singh-team.jpeg";
+import ashmeetProfile from "../assets/images/ashmeet-singh-team.jpeg";
+import srivalliProfile from "../assets/images/srivalli-team.jpeg";
 
 export const team = [
   {
@@ -70,6 +73,7 @@ export const team = [
     experience: "BCA student at Sri Guru Tegh Bahadur Institute of Management and Information Technology · Graphic design enthusiast",
     intro: "Creative and enthusiastic learner with strong communication, teamwork, and problem-solving skills, passionate about graphic design, technology, and continuous learning.",
     quote: "Creating with purpose, learning continuously, and contributing positively through design and teamwork.",
+    photo: ashmeetProfile,
     socials: {
       linkedin: "https://www.linkedin.com/in/ashmeet-singh-797ba2406?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       instagram: "https://instagram.com/ashmeettt_singh?mdxt=MTEzMTdoZWQ3czB1cw%3D%3D",
@@ -95,6 +99,8 @@ export const team = [
     experience: "CSE student at GCET · Strong foundation in Python and C · Hackathon enthusiast",
     intro: "Tech enthusiast passionate about building software that solves real-world problems. Thrives in collaborative, high-energy environments like hackathons and is always eager to learn, build, and innovate.",
     quote: "Bringing people and ideas together to learn, build, and innovate.",
+    photo: aparnaProfile,
+    photoPosition: "center 25%",
     socials: {
       linkedin: "https://www.linkedin.com/in/aparnasingh9198?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       instagram: "https://www.instagram.com/aparna_singh_222?xtok=Yjhxb256b2dvcjYx",
@@ -106,6 +112,8 @@ export const team = [
     experience: "Content Creation Team Lead · Creative communication enthusiast",
     intro: "Passionate about content creation and shaping clear, engaging, and community-focused communication for Exofinity.",
     quote: "Turning ideas into engaging stories that connect, inform, and inspire the community.",
+    photo: srivalliProfile,
+    photoPosition: "center 20%",
     socials: {
       linkedin: "https://www.linkedin.com/in/jetram-sri-valli-reddy-74a25538b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       instagram: "https://www.instagram.com/srivalli_1610?vrfl=MWQ4ZXZsZWdnd3FmZQ==",

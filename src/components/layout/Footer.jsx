@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import exofinityLogo from "../../assets/images/exofinity-team-logo.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,8 +102,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div className="footer-fade">
-            <Link to="/" className="font-heading font-bold text-xl">
-              Exo<span className="text-accent">finity</span>
+            <Link to="/" className="inline-flex rounded-lg bg-white px-2 py-1">
+              <img src={exofinityLogo} alt="Exofinity" className="h-10 w-auto object-contain" />
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
               Beyond limits. Infinite growth. A community built for builders,
