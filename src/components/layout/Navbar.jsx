@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import gsap from "gsap";
+import exofinityLogo from "../../assets/images/exofinity-team-logo.jpeg";
 
 const links = [
   { to: "/", label: "Home" },
@@ -138,12 +139,13 @@ export default function Navbar() {
       >
         <NavLink
           to="/"
-          className="group shrink-0 font-heading font-bold text-xl tracking-tight"
+          className="group shrink-0 rounded-lg bg-white px-2 py-1"
         >
-          <span className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5">
-            Exo
-            <span className="text-accent">finity</span>
-          </span>
+          <img
+            src={exofinityLogo}
+            alt="Exofinity"
+            className="h-8 w-auto object-contain transition-transform duration-300 group-hover:-translate-y-0.5"
+          />
         </NavLink>
 
         {/* Desktop nav with sliding active indicator */}
