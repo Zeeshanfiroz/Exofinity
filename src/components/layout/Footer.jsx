@@ -15,6 +15,9 @@ const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
+const communityEmail = "exofinitycommunity@gmail.com";
+const communityEmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(communityEmail)}`;
+
 const socials = [
   {
     href: "https://www.instagram.com/ex_ofinity?igsh=MTZ0dTZkeDV3Ymp5ZA==",
@@ -109,6 +112,15 @@ export default function Footer() {
               Beyond limits. Infinite growth. A community built for builders,
               dreamers, and doers.
             </p>
+            <a
+              href={communityEmailLink}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-accent"
+            >
+              <i className="fa-solid fa-envelope text-[14px]" />
+              {communityEmail}
+            </a>
 
             <div className="mt-5 flex gap-3">
               {socials.map((s) => (
