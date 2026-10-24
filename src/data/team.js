@@ -21,7 +21,7 @@ export const team = [
     socials: {
       linkedin: "https://www.linkedin.com/in/phalguni-maharana-866178372?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       instagram: "https://www.instagram.com/thephalguniiii_61?igsh=MW9vdG1qNDdhdjF3Zw==",
-      email: "mailto:phalguni@exofinity.com"
+      email: "mailto:phalguni.official2361@gmail.com"
     },
   },
   {
